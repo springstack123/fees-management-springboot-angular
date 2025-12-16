@@ -1,0 +1,19 @@
+<h1>valuable feedback</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email id</th>
+            <th>Feedback Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of fd">
+        <td>{{f.id}}</td>
+        <td>{{f.name}}</td>
+        <td>{{f.emailid}}</td>
+        <td>{{f.feedbackdetailes}}</td>
+        </tr>
+    </tbody>
+</table>

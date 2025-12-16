@@ -1,0 +1,24 @@
+
+<h1>payments details</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Email id</th>
+        <th>Address</th>
+        <th>payment Amount</th>
+        <th>password</th>
+        <th>payment method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of pm">
+    <td>{{p.id}}</td>
+    <td>{{p.emailid}}</td>
+    <td>{{p.address}}</td>
+    <td>{{p.paymentamount}}</td>
+    <td>{{p.password}}</td>
+    <td>{{p.paymentmethod}}</td>
+    </tr>
+    </tbody>
+  </table>
