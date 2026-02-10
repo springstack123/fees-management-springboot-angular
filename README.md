@@ -1,171 +1,197 @@
-Student Fees Management System
+# 📚 Student Fees Management System
 
-Spring Boot + Angular Full-Stack Project
+A full-stack application for managing student records, fee collection, and payment tracking using Spring Boot and Angular.
 
-A full-stack Student Fees Management System designed to manage student records, fee collection, and payment tracking efficiently.
-This project uses Spring Boot for backend services and Angular for the frontend UI.
+## 🚀 Features
 
-📌 Overview
+- Student registration & management
+- Fee payment tracking
+- Secure admin dashboard
+- REST API integration
+- Responsive UI
 
-This system allows administrators to register students, track fee payments, and manage records through a secure and responsive web interface.
+## 🛠️ Tech Stack
 
-🚀 Features
+**Backend:** Java, Spring Boot, Spring Data JPA, MySQL, Maven  
+**Frontend:** Angular, TypeScript, HTML5, CSS3  
+**Tools:** Git, Postman, Docker (optional)
 
-Student registration & management
+## 📂 Project Structure
 
-Fee payment tracking
-
-Admin login & dashboard
-
-Secure REST API integration
-
-Feedback & contact modules
-
-Responsive frontend UI
-
-🛠️ Tech Stack
-Backend
-
-Java
-
-Spring Boot
-
-Spring Data JPA
-
-REST APIs
-
-Maven
-
-Frontend
-
-Angular
-
-TypeScript
-
-HTML5
-
-CSS3
-
-Database
-
-MySQL
-
-Tools & Platforms
-
-Git & GitHub
-
-Postman
-
-Docker (Optional)
-
-📂 Project Structure
+```
 fees-management-springboot-angular/
-│
-├── backend/              # Spring Boot backend
-├── frontend/client/      # Angular frontend
-├── README.md
-└── index.html
+├── backend/              # Spring Boot application
+├── frontend/client/      # Angular application
+└── README.md
+```
 
-⚙️ Step-by-Step Setup & Run Guide
-✅ Prerequisites
+## ⚙️ Prerequisites
 
-Install the following:
+- Java JDK 17+
+- Node.js 16+
+- Maven 3.6+
+- Angular CLI
+- MySQL 8.0+
 
-Java JDK 17+
+Verify installation:
+```bash
+java -version && mvn -version && node -v && ng version
+```
 
-Maven
+## 🚀 Quick Start
 
-Node.js & npm
+### Backend Setup
 
-Angular CLI
-
-MySQL
-
-Git
-
-Check installation:
-
-java -version
-mvn -version
-node -v
-npm -v
-ng version
-
-▶️ Run Backend (Spring Boot)
-Step 1 — Clone Repository
+```bash
+# 1. Clone repository
 git clone https://github.com/springstack123/fees-management-springboot-angular.git
 cd fees-management-springboot-angular/backend
 
-Step 2 — Configure Database
-
-Open:
-
-src/main/resources/application.properties
-
-
-Update:
-
-spring.datasource.url=jdbc:mysql://localhost:3306/feesdb
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-
-
-Create database in MySQL:
-
+# 2. Create database
+mysql -u root -p
 CREATE DATABASE feesdb;
 
-Step 3 — Run Backend
+# 3. Update application.properties
+# src/main/resources/application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/feesdb
+spring.datasource.username=root
+spring.datasource.password=your_password
+
+# 4. Run application
 mvn spring-boot:run
+```
 
+**Backend runs at:** `http://localhost:8080`
 
-Backend will start at:
+### Frontend Setup
 
-http://localhost:8080
-
-▶️ Run Frontend (Angular)
-Step 1 — Navigate to Frontend
+```bash
+# 1. Navigate to frontend
 cd ../frontend/client
 
-Step 2 — Install Dependencies
+# 2. Install dependencies
 npm install
 
-Step 3 — Start Angular Server
-ng serve
+# 3. Start Angular server
+ng serve --open
+```
 
+**Frontend runs at:** `http://localhost:4200`
 
-Frontend runs at:
+## 🔗 API Endpoints
 
-http://localhost:4200
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/students` | Get all students |
+| POST | `/api/students` | Create student |
+| GET | `/api/fees` | Get all fees |
+| POST | `/api/payments` | Record payment |
+| GET | `/api/dashboard/stats` | Dashboard statistics |
 
-🔗 API Testing (Optional)
+## 🧪 Test API (Postman)
 
-Use Postman to test backend APIs:
+```
+Base URL: http://localhost:8080/api
 
-Example:
+Example: GET http://localhost:8080/api/students
+```
 
-GET http://localhost:8080/api/students
+## 🐳 Docker Setup
 
-📌 GitHub Repository
+```bash
+docker-compose up -d
+# Runs on http://localhost:4200
+```
 
-👉 https://github.com/springstack123/fees-management-springboot-angular
+## 📚 Key Files
 
-👩‍💻 Author
+| File | Purpose |
+|------|---------|
+| `pom.xml` | Maven dependencies |
+| `application.properties` | Database & server config |
+| `package.json` | Node dependencies |
+| `angular.json` | Angular configuration |
 
-Ankita Santosh Gaikwad
-Java / Full-Stack Developer
+## 🔐 Security Tips
 
-GitHub:
-https://github.com/springstack123
+- Use environment variables for credentials
+- Enable CORS in Spring Boot
+- Use JWT for authentication
+- Validate all inputs
+- Use HTTPS in production
 
-⭐ Support
+## 🐛 Troubleshooting
 
-If you like this project:
+**Port 8080 in use?**
+```bash
+lsof -i :8080 && kill -9 <PID>
+```
 
-Star the repository
+**Database connection error?**
+- Verify MySQL is running
+- Check credentials in `application.properties`
 
-Fork and contribute
+**npm install fails?**
+```bash
+npm cache clean --force && npm install
+```
 
-Share feedback
+## 📊 Database Schema
+
+```sql
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    enrollment_number VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE fees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    amount DECIMAL(10,2),
+    due_date DATE,
+    status ENUM('PENDING','PAID'),
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+
+CREATE TABLE payments (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id INT,
+    amount DECIMAL(10,2),
+    payment_date DATE,
+    status ENUM('SUCCESS','PENDING'),
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/YourFeature`
+3. Commit changes: `git commit -m 'Add YourFeature'`
+4. Push: `git push origin feature/YourFeature`
+5. Open Pull Request
+
+## 📝 License
+
+MIT License - feel free to use commercially
+
+## 👩‍💻 Author
+
+**Ankita Santosh Gaikwad**  
+Java / Full-Stack Developer  
+📌 GitHub: [@springstack123](https://github.com/springstack123)
+
+## ⭐ Support
+
+- ⭐ Star this repository
+- 🔗 Fork and contribute
+- 📝 Report issues
+- 💬 Provide feedback
+
+---
+
+**Repository:** [fees-management-springboot-angular](https://github.com/springstack123/fees-management-springboot-angular)  
+**Status:** Active Development  
+**Version:** 1.0.0
