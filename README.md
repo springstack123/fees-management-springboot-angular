@@ -18,12 +18,55 @@ A full-stack application for managing student records, fee collection, and payme
 
 ## 📂 Project Structure
 
+
 ```
 fees-management-springboot-angular/
-├── backend/              # Spring Boot application
-├── frontend/client/      # Angular application
-└── README.md
+│
+├── backend/                                 # Spring Boot Backend
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/example/
+│   │   │   │   ├── controller/              # REST Controllers
+│   │   │   │   ├── service/                 # Business Logic
+│   │   │   │   ├── repository/              # Data Access Layer
+│   │   │   │   ├── entity/                  # JPA Entities
+│   │   │   │   ├── dto/                     # Data Transfer Objects
+│   │   │   │   ├── config/                  # Configuration Classes
+│   │   │   │   └── FeesManagementApplication.java
+│   │   │   └── resources/
+│   │   │       ├── application.properties   # Database & Server Config
+│   │   │       └── static/
+│   │   └── test/                            # Unit Tests
+│   ├── pom.xml                              # Maven Configuration
+│   └── README.md                            # Backend Documentation
+│
+├── frontend/                                # Angular Frontend
+│   └── client/
+│       ├── src/
+│       │   ├── app/
+│       │   │   ├── components/              # UI Components
+│       │   │   ├── services/                # API Services
+│       │   │   ├── models/                  # TypeScript Models
+│       │   │   ├── guards/                  # Route Guards
+│       │   │   ├── interceptors/            # HTTP Interceptors
+│       │   │   ├── app.module.ts            # Root Module
+│       │   │   ├── app-routing.module.ts    # Routing Configuration
+│       │   │   └── app.component.ts
+│       │   ├── assets/                      # Images, Icons
+│       │   ├── styles/                      # Global Styles
+│       │   ├── index.html
+│       │   └── main.ts
+│       ├── angular.json                     # Angular Configuration
+│       ├── package.json                     # Node Dependencies
+│       ├── tsconfig.json                    # TypeScript Configuration
+│       └── README.md                        # Frontend Documentation
+│
+├── docker-compose.yml                       # Docker Configuration (Optional)
+├── .gitignore
+└── README.md                                # Project Documentation
+
 ```
+
 
 ## ⚙️ Prerequisites
 
