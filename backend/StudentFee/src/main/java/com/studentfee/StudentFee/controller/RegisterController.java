@@ -18,7 +18,7 @@ import com.studentfee.StudentFee.repository.RegisterRepository;
 @RestController
 @CrossOrigin(origins = {
 	    "http://localhost:4200",
-	    "https://your-frontend-url.onrender.com"
+	    "https://fees-frontend.onrender.com"
 	})
 @RequestMapping("/student_fee/")
 public class RegisterController {
