@@ -19,10 +19,10 @@
           <hr>
           <h2>Need Help? Get in Touch!</h2>
           <i class="bi bi-envelope-fill"></i>
-          <p>Email: ankitagaikwad073gmail.com</p>
+          <p>Email: ankitagaikwad073&#64;gmail.com</p>
           <i class="bi bi-telephone-fill"></i>
           <p>Phone: +91 87660 91095</p>
-         <form method="post" action="http://localhost:8081/student_fee/contact" (submit)="submitdata()">
+         <form (ngSubmit)="submitdata()">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" [(ngModel)]="c.name">
@@ -36,7 +36,9 @@
               <label for="message" class="form-label">Message</label>
               <textarea class="form-control" id="message" rows="3" placeholder="Write your message here..." name="massage" [(ngModel)]="c.massage"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+           <button type="submit" class="btn btn-primary">
+  Send Message
+</button>
           </form>
         </section>
       </div>

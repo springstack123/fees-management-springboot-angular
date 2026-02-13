@@ -7,14 +7,17 @@ import { Feedback } from '../models/feedback';
   providedIn: 'root'
 })
 export class FeedbackService {
-  private baseUrl : string="http://localhost:8081/student_fee/feedback"
-  constructor(private http:HttpClient) { }
-  newfeedback(f:Feedback): Observable<Feedback>
-  {
-    return this.http.post<Feedback>(`${this.baseUrl}`,f);
-    }
-    getAll():Observable<Feedback[]>
-    {
-      return this.http.get<Feedback[]>(`${this.baseUrl}`)
-    }
+
+  private baseUrl =
+    "https://fees-management-springboot-angular.onrender.com/student_fee/feedback";
+
+  constructor(private http: HttpClient) {}
+
+  newfeedback(f: Feedback): Observable<Feedback> {
+    return this.http.post<Feedback>(this.baseUrl, f);
+  }
+
+  getAll(): Observable<Feedback[]> {
+    return this.http.get<Feedback[]>(this.baseUrl);
+  }
 }
