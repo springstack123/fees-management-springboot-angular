@@ -216,6 +216,14 @@ CREATE TABLE payments (
 4. Push: `git push origin feature/YourFeature`
 5. Open Pull Request
 
+🔗 Live Demo
+
+Frontend:
+https://fees-frontend.onrender.com
+
+Backend API:
+https://fees-management-springboot-angular.onrender.com/student_fee/register
+
 ## 📝 License
 
 MIT License - feel free to use commercially
