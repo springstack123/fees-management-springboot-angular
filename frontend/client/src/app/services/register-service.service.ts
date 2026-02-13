@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class RegisterServiceService {
 
-  private baseUrl =
-    "https://fees-management-springboot-angular.onrender.com/student_fee/register";
+  private baseUrl : string="https://fees-management-springboot-angular.onrender.com/student_fee/register"
 
   constructor(private http: HttpClient) {}
 
