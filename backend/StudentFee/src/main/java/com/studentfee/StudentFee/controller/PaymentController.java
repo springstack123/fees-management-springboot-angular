@@ -17,21 +17,20 @@ import com.studentfee.StudentFee.model.Register;
 import com.studentfee.StudentFee.repository.PaymentRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/student_fee/")
+@CrossOrigin(origins = "*")
+@RequestMapping("/student_fee")
 public class PaymentController {
-	@Autowired
-	@Qualifier("payRepo")
-	PaymentRepository payRepo;
-	@GetMapping("/payment")
-	public ArrayList<Payment> payment()
-	{
-		return (ArrayList<Payment>)payRepo.findAll();
-		
-	}
-	@PostMapping("/payment")
-	public Payment savepaymet(@RequestBody Payment p)
-	{
-		return payRepo.save(p);
-	} 
-	}
+
+    @Autowired
+    PaymentRepository payRepo;
+
+    @GetMapping("/payment")
+    public ArrayList<Payment> payment() {
+        return (ArrayList<Payment>) payRepo.findAll();
+    }
+
+    @PostMapping("/payment")
+    public Payment savepaymet(@RequestBody Payment p) {
+        return payRepo.save(p);
+    }
+}
