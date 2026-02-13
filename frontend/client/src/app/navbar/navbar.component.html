@@ -1,76 +1,160 @@
-<nav class="navbar navbar-expand-lg navbar-collapse navbar-light bg-light fixed-top  text-uppercase">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Fees Management</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar" [ngClass]="'navbar-' + menuType">
+  <div class="navbar-container">
+    <!-- Brand -->
+    <div class="navbar-brand">
+      <a href="javascript:void(0)" class="brand-logo">
+        <span class="logo-icon">₹</span>
+        <span class="brand-text">Fees Manager</span>
+      </a>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <button 
+      class="mobile-toggle" 
+      type="button" 
+      (click)="toggleMobile()"
+      [attr.aria-expanded]="mobileOpen"
+      aria-label="Toggle navigation">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
     </button>
-    <div class="collapse navbar-collapse" id="mynavbar" [ngSwitch]="menuType">
-      <ul class="navbar-nav me-auto" text-align="left" *ngSwitchCase="'guest'">
+
+    <!-- Navigation Menu -->
+    <div class="navbar-menu" [ngClass]="{ 'mobile-open': mobileOpen }" [ngSwitch]="menuType">
+      
+      <!-- Guest Menu -->
+      <ul class="nav-list" *ngSwitchCase="'guest'" @slideIn>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/"><i class="bi bi-house-door-fill"></i> Home</a>
+          <a class="nav-link" routerLink="/" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Home</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/news"><i class="bi bi-megaphone-fill"></i> News & Announcement</a>
+          <a class="nav-link" routerLink="/news" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-megaphone-fill"></i>
+            <span>News</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about"><i class="bi bi-info-circle-fill"></i> About us</a>
+          <a class="nav-link" routerLink="/about" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>About</span>
+          </a>
+        </li>
+        <li class="nav-item nav-divider"></li>
+        <li class="nav-item auth-section">
+          <a class="nav-link nav-link-primary" routerLink="/log" (click)="closeMobile()">
+            <i class="bi bi-person-fill"></i>
+            <span>Login</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/log"><i class="bi bi-person-fill"> login</i></a>
+          <a class="nav-link nav-link-secondary" routerLink="/reg" (click)="closeMobile()">
+            <i class="bi bi-person-plus-fill"></i>
+            <span>Register</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/reg"><i class="bi bi-person-plus-fill"> Register</i></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/alog"><i class="bi bi-person-fill">Admin login</i></a>
+          <a class="nav-link nav-link-secondary" routerLink="/alog" (click)="closeMobile()">
+            <i class="bi bi-shield-fill"></i>
+            <span>Admin</span>
+          </a>
         </li>
       </ul>
 
-      <ul class="navbar-nav me-auto" text-align="left" *ngSwitchCase="'user'">
+      <!-- User Menu -->
+      <ul class="nav-list" *ngSwitchCase="'user'" @slideIn>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/"><i class="bi bi-house-door-fill"></i> Home</a>
+          <a class="nav-link" routerLink="/" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Home</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/news"><i class="bi bi-megaphone-fill"></i> News & Announcement</a>
+          <a class="nav-link" routerLink="/news" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-megaphone-fill"></i>
+            <span>News</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about"><i class="bi bi-info-circle-fill"></i> About us</a>
+          <a class="nav-link" routerLink="/about" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>About</span>
+          </a>
+        </li>
+        <li class="nav-item nav-divider"></li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-accent" routerLink="/pay" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-credit-card-fill"></i>
+            <span>Pay Fees</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/pay"><i class="bi bi-currency-rupee"></i> payment</a>
+          <a class="nav-link" routerLink="/feed" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-chat-dots-fill"></i>
+            <span>Feedback</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/feed"><i class="bi bi-envelope-paper-fill"></i> feedback</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="slogout()"><i class="bi bi-box-arrow-right"></i> logout</a>
+          <a class="nav-link nav-link-danger" (click)="slogout()">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </a>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto" text-align="left" *ngSwitchCase="'admin'">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/"><i class="bi bi-house-door-fill"></i> Home</a>
-        </li>
 
+      <!-- Admin Menu -->
+      <ul class="nav-list" *ngSwitchCase="'admin'" @slideIn>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about"><i class="bi bi-info-circle-fill"></i> About us</a>
+          <a class="nav-link" routerLink="/" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-house-door-fill"></i>
+            <span>Home</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/viewreg"><i class="bi bi-currency-rupee"></i>view Register</a>
+          <a class="nav-link" routerLink="/about" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>About</span>
+          </a>
+        </li>
+        <li class="nav-item nav-divider"></li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/viewreg" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-people-fill"></i>
+            <span>Registrations</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/viewfeedback"><i class="bi bi-envelope-paper-fill"></i>view feedback</a>
+          <a class="nav-link" routerLink="/viewpayment" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-receipt"></i>
+            <span>Payments</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/viewpayment"><i class="bi bi-currency-rupee"></i>view payment</a>
+          <a class="nav-link" routerLink="/viewfeedback" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-chat-left-text-fill"></i>
+            <span>Feedback</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/viewcontact"><i class="bi bi-telephone-fill"></i>view contact massage</a>
+          <a class="nav-link" routerLink="/viewcontact" (click)="closeMobile()" routerLinkActive="active">
+            <i class="bi bi-telephone-fill"></i>
+            <span>Messages</span>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="alogout()"><i class="bi bi-box-arrow-right"></i> logout</a>
+          <a class="nav-link nav-link-danger" (click)="alogout()">
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+          </a>
         </li>
       </ul>
 
     </div>
   </div>
+
+  <!-- Active Link Indicator -->
+  <div class="navbar-underline"></div>
 </nav>
