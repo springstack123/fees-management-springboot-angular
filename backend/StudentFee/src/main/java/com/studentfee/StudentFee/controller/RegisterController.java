@@ -31,15 +31,11 @@ public class RegisterController {
     @PostMapping("/register")
     public Register registerStudent(@RequestBody Register register) {
 
-        Register savedUser = registerRepository.save(register);
+        if (register.getPercentage() == null) {
+            register.setPercentage(0.0);
+        }
 
-        // Send email
-        emailService.sendRegistrationEmail(
-                savedUser.getEmailid(),
-                savedUser.getFullName()
-        );
-
-        return savedUser;
+        return registerRepository.save(register);
     }
 
     @Autowired
