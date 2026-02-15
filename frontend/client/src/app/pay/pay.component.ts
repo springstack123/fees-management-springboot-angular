@@ -1,33 +1,67 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Payment } from '../models/payment';
-import { PaymentServiceService } from '../services/payment-service.service';
-import { Router } from 'express';
 
 @Component({
-  selector: 'app-pay',
+  selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './pay.component.html',
-  styleUrl: './pay.component.css'
+  styleUrls: ['./pay.component.css']
 })
-export class PayComponent implements OnInit{
-  p:Payment=new Payment();
-  ngOnInit(): void {
-    
+export class PaymentComponent {
+
+  p: any = {
+    emailid: '',
+    address: '',
+    paymentamount: '',
+    password: '',
+    paymentmethod: ''
+  };
+
+  paymentHistory: any[] = [];
+
+  submitdata() {
+
+    const newPayment = {
+      ...this.p,
+      date: new Date()
+    };
+
+    this.paymentHistory.push(newPayment);
+
+    alert("Payment Successful ✅");
+
+    this.generateReceipt(newPayment);
+
+    // Reset form
+    this.p = {
+      emailid: '',
+      address: '',
+      paymentamount: '',
+      password: '',
+      paymentmethod: ''
+    };
   }
-constructor(private pServ:PaymentServiceService)
-{
-   
-}
-submitdata()
-{
-  this.pServ.newpayment(this.p).subscribe((data:Payment)=>{
-    if(data!=null)
-      {
-        alert("payment successful")
-      }
-  })
-}
+
+  generateReceipt(payment: any) {
+
+    const receiptContent = `
+Fees Management System
+-----------------------------
+Email: ${payment.emailid}
+Address: ${payment.address}
+Amount: ₹${payment.paymentamount}
+Method: ${payment.paymentmethod}
+Date: ${payment.date}
+
+Payment Successful!
+`;
+
+    const blob = new Blob([receiptContent], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'Payment_Receipt.txt';
+    link.click();
+  }
 }

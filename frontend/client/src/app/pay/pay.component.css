@@ -1,0 +1,12 @@
+h1, h4 {
+  color: #0d6efd;
+}
+
+table {
+  font-size: 14px;
+}
+.custom-container {
+  background-color: #8194b6;
+  padding: 30px;
+  border-radius: 10px;
+}

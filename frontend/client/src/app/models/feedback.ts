@@ -1,6 +1,6 @@
 export class Feedback {
-    id:any;
-    name:any;
-    emailid:any;
-    feedbackdetailes:any;
+  id?: number;
+  name!: string;
+  emailid!: string;
+  feedbackdetails!: string;
 }

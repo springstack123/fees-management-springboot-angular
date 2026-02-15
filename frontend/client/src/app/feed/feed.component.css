@@ -1,0 +1,8 @@
+.card {
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
+  border: none;
+}
+
+h2 {
+  font-weight: 600;
+}
