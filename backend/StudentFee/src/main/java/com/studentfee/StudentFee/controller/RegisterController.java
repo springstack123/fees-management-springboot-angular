@@ -9,39 +9,37 @@ import org.springframework.web.bind.annotation.*;
 import com.studentfee.StudentFee.dto.LoginRequest;
 import com.studentfee.StudentFee.model.Register;
 import com.studentfee.StudentFee.repository.RegisterRepository;
-import com.studentfee.StudentFee.service.EmailService;
 
 @RestController
 @RequestMapping("/student_fee")
+@CrossOrigin(origins = {
+        "http://localhost:4200",
+        "https://fees-frontend.onrender.com"
+})
 public class RegisterController {
 
     @Autowired
     private RegisterRepository registerRepository;
 
-    // Get All Students
+    // ✅ Get All
     @GetMapping("/register")
     public List<Register> getAllStudents() {
         return registerRepository.findAll();
     }
+
+    // ✅ Get by Email
     @GetMapping("/register/email/{email}")
     public Register getByEmail(@PathVariable String email) {
         return registerRepository.findByEmailid(email).orElse(null);
     }
-    // Register New Student
+
+    // ✅ Register
     @PostMapping("/register")
     public Register registerStudent(@RequestBody Register register) {
-
-        if (register.getPercentage() == null) {
-            register.setPercentage(0.0);
-        }
-
         return registerRepository.save(register);
     }
 
-    @Autowired
-    private EmailService emailService;
-
-    // Secure Login (POST)
+    // ✅ Login
     @PostMapping("/login")
     public Register login(@RequestBody LoginRequest loginRequest) {
 
