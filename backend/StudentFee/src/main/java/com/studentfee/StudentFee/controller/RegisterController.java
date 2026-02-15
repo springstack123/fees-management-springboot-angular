@@ -39,7 +39,6 @@ public class RegisterController {
         return registerRepository.save(register);
     }
 
-    // ✅ Login
     @PostMapping("/login")
     public Register login(@RequestBody LoginRequest loginRequest) {
 
@@ -54,4 +53,5 @@ public class RegisterController {
 
         return null;
     }
+
 }
