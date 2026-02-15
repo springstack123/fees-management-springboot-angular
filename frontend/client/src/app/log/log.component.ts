@@ -20,17 +20,22 @@ export class LogComponent {
 
   }
 submitdata() {
-  this.regServ.login(this.reg).subscribe((data: Register) => {
+  this.regServ.login(this.reg).subscribe({
+    next: (res) => {
 
-    if (data) {
-      localStorage.setItem("emailid", data.emailid);
-      this.router.navigate(['/profile']);
-    } else {
-      alert("Invalid Credentials ❌");
+      if (res) {
+        localStorage.setItem("studentEmail", res.emailid);
+        alert("Login Successful ✅");
+        this.router.navigate(['/profile']);
+      } else {
+        alert("Invalid Credentials ❌");
+      }
+
+    },
+    error: (err) => {
+      console.log("Login error:", err);
+      alert("Server Error ❌");
     }
-
-  }, error => {
-    alert("Login Failed ❌");
   });
 }
 

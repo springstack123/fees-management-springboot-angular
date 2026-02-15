@@ -41,7 +41,10 @@
 
       <input type="text" placeholder="Address" class="form-control mb-3">
       <input type="tel" placeholder="Phone Number" class="form-control mb-3">
-      <input type="email" placeholder="Email Address" class="form-control mb-3">
+      <input type="email"
+       name="emailid"
+       [(ngModel)]="reg.emailid"
+       required>
 
       <!-- ACADEMIC HISTORY -->
       <h5 class="section-title mt-4">Academic History</h5>
