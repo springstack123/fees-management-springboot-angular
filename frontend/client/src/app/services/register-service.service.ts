@@ -9,22 +9,17 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterServiceService {
 
   private baseUrl =
-    "https://fees-management-springboot-angular.onrender.com/student_fee";
+    "https://fees-management-springboot-angular.onrender.com/student_fee/register";
 
   constructor(private http: HttpClient) {}
 
-  // ✅ Register
   newUser(reg: Register): Observable<Register> {
-    return this.http.post<Register>(
-      `${this.baseUrl}/register`,
-      reg
-    );
+    return this.http.post<Register>(this.baseUrl, reg);
   }
 
-  // ✅ Login
   login(reg: Register): Observable<Register> {
     return this.http.post<Register>(
-      `${this.baseUrl}/login`,
+      "https://fees-management-springboot-angular.onrender.com/student_fee/login",
       {
         emailid: reg.emailid,
         password: reg.password
@@ -32,17 +27,13 @@ export class RegisterServiceService {
     );
   }
 
-  // ✅ Get All Users
   getAll(): Observable<Register[]> {
-    return this.http.get<Register[]>(
-      `${this.baseUrl}/register`
-    );
+    return this.http.get<Register[]>(this.baseUrl);
   }
 
-  // ✅ Get by Email
   getByEmail(email: string): Observable<Register> {
     return this.http.get<Register>(
-      `${this.baseUrl}/register/email/${email}`
+      `${this.baseUrl}/email/${email}`
     );
   }
 }
