@@ -9,7 +9,10 @@ import com.studentfee.StudentFee.model.Contact;
 import com.studentfee.StudentFee.repository.ContactRepository;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+        "http://localhost:4200",
+        "https://fees-frontend.onrender.com"
+})
 @RequestMapping("/student_fee")
 public class ContactController {
 

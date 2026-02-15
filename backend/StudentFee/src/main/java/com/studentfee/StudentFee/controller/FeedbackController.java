@@ -1,28 +1,30 @@
 package com.studentfee.StudentFee.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import com.studentfee.StudentFee.model.Feedback;
 import com.studentfee.StudentFee.repository.FeedbackRepository;
 
 @RestController
-@CrossOrigin(origins = "*")
-@RequestMapping("/student_fee")
+@CrossOrigin(origins = {
+        "http://localhost:4200",
+        "https://fees-frontend.onrender.com"
+})
 public class FeedbackController {
 
     @Autowired
-    FeedbackRepository feedRepo;
+    private FeedbackRepository repo;
 
-    @GetMapping("/feedback")
-    public ArrayList<Feedback> feedback() {
-        return (ArrayList<Feedback>) feedRepo.findAll();
+    @PostMapping("/newfeedback")
+    public Feedback newFeedback(@RequestBody Feedback f) {
+        return repo.save(f);
     }
 
-    @PostMapping("/feedback")
-    public Feedback savefeedback(@RequestBody Feedback f) {
-        return feedRepo.save(f);
+    @GetMapping("/allfeedback")
+    public List<Feedback> getAllFeedback() {
+        return repo.findAll();
     }
 }
