@@ -1,0 +1,66 @@
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* LEFT SIDE */
+.auth-left {
+  flex: 1;
+  padding: 50px 80px;
+  background: #ffffff;
+  overflow-y: auto;
+}
+
+.section-title {
+  font-weight: 600;
+  color: #0d6efd;
+  margin-bottom: 15px;
+  border-left: 4px solid #0d6efd;
+  padding-left: 8px;
+}
+.auth-container {
+  margin-top: 60px; /* push content below navbar */
+  min-height: 100vh;
+  display: flex;
+}
+
+/* RIGHT SIDE IMAGE */
+.auth-right {
+  flex: 1;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://thumbs.dreamstime.com/b/online-application-registration-form-graphics-concept-75688264.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+.image-overlay h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.image-overlay p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .auth-container {
+    flex-direction: column;
+  }
+
+  .auth-right {
+    height: 300px;
+  }
+
+  .auth-left {
+    padding: 30px;
+  }
+}

@@ -1,98 +1,59 @@
-<div>
-  <img src="../assets/fees2.jpg" class="d-block w-100">
-</div><br>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h1 class="text" style="text-align: center;">
-        Student Login
-      </h1>
-      <div class="card mt-5">
-        <div class="card-header text-center"><b>
-            Student Fees Management System</b>
-        </div>
-        <div class="card-body">
-          <form (submit)="submitdata()">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" required name="emailid" [(ngModel)]="reg.emailid">
+<div class="login-page-wrapper">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-lg-10">
+        <div class="card login-card shadow-lg border-0 overflow-hidden">
+          <div class="row g-0">
+            
+            <div class="col-md-6 d-none d-md-block login-bg-image">
+              <div class="overlay-content text-white p-5 h-100 d-flex flex-column justify-content-center">
+                <h2 class="fw-bold mb-3">Student Portal</h2>
+                <p class="lead">Manage your fees, download receipts, and track your educational journey in one place.</p>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" required name="password"
-                [(ngModel)]="reg.password">
-            </div><br>
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary">Login</button>
-              <button type="reset" class="btn btn-danger">reset</button>
+
+            <div class="col-md-6 p-4 p-lg-5">
+              <div class="text-center mb-4">
+                <h3 class="fw-bold text-primary">Student Login</h3>
+                <p class="text-muted small">Enter your credentials to access your account</p>
+              </div>
+
+             <form (ngSubmit)="submitdata()">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username (Email)</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control bg-light border-start-0" id="username" 
+                           placeholder="Enter your email" required name="emailid" [(ngModel)]="reg.emailid">
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="password" class="form-label">Password</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control bg-light border-start-0" id="password" 
+                           placeholder="Enter password" required name="password" [(ngModel)]="reg.password">
+                  </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                 <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+  Login
+</button>
+
+                  <button type="reset" class="btn btn-outline-danger btn-sm border-0">Reset Details</button>
+                </div>
+              </form>
+
+              <div class="text-center mt-4">
+                <p class="small text-muted mb-0">Student Fees Management System</p>
+              </div>
             </div>
-          </form>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div><br><br>
-
-
-<footer class="page-footer font-small black pt-4 bg-light">
-  <div class="container-fluid text-center text-md-left">
-    <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase">Student Fees Management System</h5>
-        <p>Manage your fees and payments with ease.</p>
-      </div>
-      <hr class="clearfix w-100 d-md-none pb-3">
-      <div class="col-md-3 mb-md-0 mb-3">
-        <h5 class="text-uppercase">Links</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Payments</a>
-          </li>
-          <li>
-            <a href="#!">Contact</a>
-          </li>
-          <li>
-            <a href="#!">Support</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-3 mb-md-0 mb-3">
-        <h5 class="text-uppercase">Legal</h5>
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#!">Terms of Use</a>
-          </li>
-          <li>
-            <a href="#!">Accessibility</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="text-center py-3">
-    © 2024 Student Fees Management System
-  </div>
-  <div class="d-flex justify-content-center">
-    <a href="your-facebook-url" class="me-4 text-reset">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="your-twitter-url" class="me-4 text-reset">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="your-google-url" class="me-4 text-reset">
-      <i class="fab fa-google"></i>
-    </a>
-    <a href="your-instagram-url" class="me-4 text-reset">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="your-linkedin-url" class="me-4 text-reset">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="your-github-url" class="me-4 text-reset">
-      <i class="fab fa-github"></i>
-    </a>
-  </div>
-</footer>
+</div>

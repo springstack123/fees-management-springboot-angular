@@ -9,13 +9,16 @@ import { HttpClient } from '@angular/common/http';
 export class AdminLoginService {
 
   private baseUrl =
-    "https://fees-management-springboot-angular.onrender.com/student_fee/admin";
+    "https://fees-management-springboot-angular.onrender.com/student_fee/admin/login";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
+  // ✅ Correct POST Login
   login(ad: AdminLogin): Observable<AdminLogin> {
-    return this.http.get<AdminLogin>(
-      `${this.baseUrl}/${ad.emailid}/${ad.password}`
-    );
+    return this.http.post<AdminLogin>(this.baseUrl, {
+      emailid: ad.emailid,
+      password: ad.password
+    });
   }
+
 }

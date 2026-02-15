@@ -1,111 +1,110 @@
-<p>about works!</p>
-<div>
-    <img src="../assets/fees2.jpg" class="d-block w-100" height="30%" width="30%">
-  </div>
+<section class="about-us">
   <div class="container">
     <div class="row">
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-8" style="text-align: center;">
+      <div class="col-sm-2"></div>
+      
+      <div class="col-sm-8 text-center content-box">
         <h1>About us</h1>
-        <img src="../assets/sm.png" alt="..." class="img-thumbnail">
         <p>
-          We are an edtech company building solutions that empower schools & teachers, make the learning process
-          enjoyable for students and enable parental aspirations. We strive to break the digital divide in the
-          Indian school education system and create a brighter future for all children irrespective of their
-          background.</p>
+          We are an edtech company building solutions that empower schools & teachers, 
+          make the learning process enjoyable for students and enable parental aspirations. 
+          We strive to break the digital divide in the Indian school education system and 
+          create a brighter future for all children irrespective of their background.
+        </p>
+      </div>
+      
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+</section>
+         <section class="why-onfees-enhanced">
+    <div class="container text-center">
+        <h2 class="section-title">Why should you use onfees?</h2>
+        
+        <div class="cards-horizontal-wrapper">
+            <div class="info-card vision-card">
+                <div class="icon-circle"><i class="bi bi-eye"></i></div>
+                <div class="card-header">
+                    <h3>Our Vision</h3>
+                </div>
+                <div class="card-body">
+                    <p>Be a market leader in the EdTech space providing easy solutions to customers with complete ownership.</p>
+                </div>
+            </div>
+
+            <div class="info-card mission-card">
+                <div class="icon-circle"><i class="bi bi-flag"></i></div>
+                <div class="card-header">
+                    <h3>Our Mission</h3>
+                </div>
+                <div class="card-body">
+                    <p>Our mission is to successfully deliver EdTech solutions for customers giving them easy access to administrative information.</p>
+                </div>
+            </div>
+
+            <div class="info-card values-card">
+                <div class="icon-circle"><i class="bi bi-star"></i></div>
+                <div class="card-header">
+                    <h3>Our Core Values</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="values-list">
+                        <li>Deliver right solutions</li>
+                        <li>Ownership</li>
+                        <li>Collaborate</li>
+                        <li>Wow experience</li>
+                        <li>Keep it simple</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
         <section class="contact-section">
-          <h2>Contact us</h2>
-          <hr>
-          <h2>Need Help? Get in Touch!</h2>
-          <i class="bi bi-envelope-fill"></i>
-          <p>Email: ankitagaikwad073&#64;gmail.com</p>
-          <i class="bi bi-telephone-fill"></i>
-          <p>Phone: +91 87660 91095</p>
-         <form (ngSubmit)="submitdata()">
+  <div class="container">
+    <div class="row align-items-stretch">
+      
+      <div class="col-md-5 contact-image-side d-none d-md-flex">
+        <div class="info-overlay">
+          <h3>Get in Touch!</h3>
+          <p>Have questions about fee management? Our team is here to help you automate your institute.</p>
+          
+          <div class="contact-details">
+            <div class="d-flex align-items-center mb-3">
+              <div class="icon-box"><i class="bi bi-envelope-fill"></i></div>
+              <span>ankitagaikwad073&#64;gmail.com</span>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="icon-box"><i class="bi bi-telephone-fill"></i></div>
+              <span>+91 87660 91095</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7 form-side">
+        <div class="form-container">
+          <h2 class="mb-4">Send us a Message</h2>
+          <form (ngSubmit)="submitdata()">
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label">Full Name</label>
               <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" [(ngModel)]="c.name">
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                placeholder="Enter your email" name="emailid" [(ngModel)]="c.emailid">
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" name="emailid" [(ngModel)]="c.emailid">
             </div>
             <div class="mb-3">
               <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" rows="3" placeholder="Write your message here..." name="massage" [(ngModel)]="c.massage"></textarea>
+              <textarea class="form-control" id="message" rows="4" placeholder="How can we help you?" name="massage" [(ngModel)]="c.massage"></textarea>
             </div>
-           <button type="submit" class="btn btn-primary">
-  Send Message
-</button>
+            <button type="submit" class="btn btn-primary w-100 py-2">
+              Send Message
+            </button>
           </form>
-        </section>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-2">
+
     </div>
   </div>
-  <br><br>
-  <footer class="page-footer font-small black pt-4 bg-light">
-    <div class="container-fluid text-center text-md-left">
-      <div class="row">
-        <div class="col-md-6 mt-md-0 mt-3">
-          <h5 class="text-uppercase">Student Fees Management System</h5>
-          <p>Manage your fees and payments with ease.</p>
-        </div>
-        <hr class="clearfix w-100 d-md-none pb-3">
-        <div class="col-md-3 mb-md-0 mb-3">
-          <h5 class="text-uppercase">Links</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a routerLink="/pay">Payments</a>
-            </li>
-            <li>
-              <a routerLink="/about">Contact</a>
-            </li>
-            <li>
-              <a routerLink="/about">Support</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-3 mb-md-0 mb-3">
-          <h5 class="text-uppercase">Legal</h5>
-          <ul class="list-unstyled">
-            <li>
-              <a href="#!">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#!">Terms of Use</a>
-            </li>
-            <li>
-              <a href="#!">Accessibility</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="text-center py-3">
-      © 2024 Student Fees Management System
-    </div>
-    <div class="d-flex justify-content-center">
-      <a href="your-facebook-url" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="your-twitter-url" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="your-google-url" class="me-4 text-reset">
-        <i class="bi bi-google"></i>
-      </a>
-      <a href="your-instagram-url" class="me-4 text-reset">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="your-linkedin-url" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="your-github-url" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-  </footer>
+</section>

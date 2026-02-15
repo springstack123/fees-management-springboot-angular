@@ -1,0 +1,23 @@
+.thankyou-container {
+  height: 130vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.main-content {
+  margin-top: 80px;   /* navbar height */
+}
+.thankyou-card {
+  background: white;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  width: 400px;
+}
+
+.success-icon {
+  font-size: 60px;
+  color: #28a745;
+}

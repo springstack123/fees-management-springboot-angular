@@ -12,9 +12,13 @@ import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { ViewPaymentComponent } from './view-payment/view-payment.component';
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import { AboutComponent } from './about/about.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 export const routes: Routes = [
-
+{
+  path: 'thankyou',
+  component: ThankyouComponent
+},
 {'path':'',component:HomeComponent},
 {'path':'news',component:NewsComponent},
 {'path':'log',component:LogComponent},
@@ -26,6 +30,13 @@ export const routes: Routes = [
 {'path':'viewfeedback',component:ViewFeedbackComponent},
 {'path':'viewpayment',component:ViewPaymentComponent},
 {'path':'viewcontact',component:ViewContactComponent},
-{'path':'about',component:AboutComponent}
+{'path':'about',component:AboutComponent},
+{
+  path: 'profile',
+  loadComponent: () =>
+    import('./profile/profile.component')
+      .then(m => m.ProfileComponent)
+}
+
 ];
    

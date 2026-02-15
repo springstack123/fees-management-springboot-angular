@@ -5,6 +5,7 @@ import { RegisterServiceService } from '../services/register-service.service';
 import { Register } from '../models/register';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-log',
   standalone: true,
@@ -18,16 +19,19 @@ export class LogComponent {
   {
 
   }
-  submitdata(){
-    this.regServ.login(this.reg).subscribe((data:Register)=>{
-      if(data!=null)
-        {
-          localStorage.setItem("emailid",data.emailid)
-          alert('Login Successful')
-          this.router.navigate(['/'])
+submitdata() {
+  this.regServ.login(this.reg).subscribe((data: Register) => {
 
-        }
-        else('Invalid emailid or password')
-    })
-  }
+    if (data) {
+      localStorage.setItem("emailid", data.emailid);
+      this.router.navigate(['/profile']);
+    } else {
+      alert("Invalid Credentials ❌");
+    }
+
+  }, error => {
+    alert("Login Failed ❌");
+  });
+}
+
 }

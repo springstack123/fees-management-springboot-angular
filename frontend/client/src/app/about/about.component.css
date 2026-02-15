@@ -1,0 +1,209 @@
+.why-onfees-enhanced {
+    padding: 60px 0;
+    /* Bubble background simulation based on your reference image */
+    background: radial-gradient(circle at 10% 20%, rgba(181, 211, 51, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(47, 85, 151, 0.1) 0%, transparent 30%);
+}
+
+.cards-horizontal-wrapper {
+    display: flex;
+    flex-direction: row; /* Force one line */
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: nowrap; /* Prevents wrapping on desktop */
+}
+
+.info-card {
+    flex: 1; /* All sections take equal width */
+    max-width: 350px;
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.1);
+    border-color: #3b82f6;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.values-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.values-list li::before {
+    content: "✔";
+    color: #10b981;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .cards-horizontal-wrapper {
+        flex-wrap: wrap; /* Wraps only on mobile/tablets */
+    }
+    .info-card {
+        min-width: 100%;
+    }
+}
+.about-us {
+  /* 1. Fix the navbar overlap */
+  padding-top: 100px; /* Adjust this if your navbar is taller/shorter */
+  padding-bottom: 60px;
+
+  /* 2. Different background color (Modern light blue/grey) */
+  background-color: #f4f7fe; 
+  
+  /* Optional: subtle background pattern to match your reference image */
+  background-image: radial-gradient(circle at 10% 20%, rgba(181, 211, 51, 0.05) 0%, transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(47, 85, 151, 0.05) 0%, transparent 30%);
+  
+  min-height: 40vh; /* Ensures the section has good height */
+  display: flex;
+  align-items: center;
+}
+
+.content-box h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #1e3a8a; /* Deep blue */
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional: underline for the title */
+.content-box h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #3b82f6;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.content-box p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #475569; /* Soft grey-blue text */
+  margin-top: 20px;
+}
+.contact-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+/* Left Side Styling */
+.contact-image-side {
+  background: linear-gradient(rgba(15, 58, 125, 0.85), rgba(15, 58, 125, 0.85)), 
+              url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 50px;
+}
+
+.info-overlay h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+/* Right Side Styling (Form) */
+.form-side {
+  background: #f8fafc;
+  border-radius: 0 20px 20px 0;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-container h2 {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.form-control {
+  border: 1px solid #e2e8f0;
+  padding: 12px 15px;
+  border-radius: 8px;
+}
+
+.form-control:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .contact-image-side {
+    border-radius: 20px 20px 0 0;
+    padding: 30px;
+  }
+  .form-side {
+    border-radius: 0 0 20px 20px;
+    padding: 30px;
+  }
+}
